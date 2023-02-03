@@ -1,0 +1,14 @@
+{% include "header.html" %}
+<table class="table">
+    <tr><th>day</th><th>time</th><th>tvilah time</th><th>contact</th></tr>
+{% for a in appointments %}
+<tr><td>{{ a.xday}}</td><td>{{ a.xtime }}</td><td>{{ a.ttime }}</td><td>{{ a.contact }}</td></tr>
+{% endfor %}
+</table>
+<br/>
+<a href=/mikvah>make an appointment</a>
+<br/>
+<a href=/admin/mikvah/appointment>the database</a>
+</div>
+</body>
+</html>

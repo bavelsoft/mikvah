@@ -1,0 +1,34 @@
+{% include "header.html" %}
+{{ debug }}
+<p>Welcome to the Mikvah appointment page.</p>
+<form method="get" action="/mikvah/times">
+  <input type="hidden" name="day" value="{{ day }}"/>
+  <input type="hidden" name="contact" value="{{ contact }}"/>
+  <input type="hidden" name="prep" value="{{ prep }}"/>
+  <label for="contact" class="form-label">Contact number (preferably on which you can receive texts)</label>
+  <br/>
+  <input class="col-sm-2" name="contact" id="contact" class="form-control" placeholder="212-555-1212" value="{{contact}}"/>
+  <br/>
+  <br/>
+  <input name="prep" id="prepbath" type="radio" value="bath" class="form-check-input"/>
+  <label for="prepbath" class="form-check-label">Bath at the mikvah</label>
+  <br/>
+  or
+  <br/>
+  <input name="prep" id="prepshower" type="radio" value="shower" class="form-check-input" checked="true"/>
+  <label for="prepshower" class="form-check-label">Shower at the mikvah</label>
+  <br/>
+  or
+  <br/>
+  <input name="prep" id="prephome" type="radio" class="form-check-input" value=""/>
+  <label for="prephome" class="form-check-label">Prep at home</label>
+  <br/>
+  <br/>
+  <div class="btn-group">
+  {% for day in days %}
+  <input type=submit name="day" class="btn btn-light" value="{{ day }}"/>
+  &nbsp;
+  {% endfor %}
+  </div>
+</form>
+{% include "footer.html" %}
